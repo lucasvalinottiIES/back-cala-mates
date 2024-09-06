@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const port = process.env.PORT || 3000;
   app.enableCors();
   
   app.useGlobalPipes(
@@ -13,7 +14,6 @@ async function bootstrap() {
     })
   )
   /* Esto me lo dio gepeto para hostear */
-  const port = process.env.PORT || 3000;
   await app.listen(port);
   /* Esto me lo dio gepeto para hostear */
 }
